@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ ! -d /build ]; then
+  # shellcheck disable=2016
+  echo 'Please mount your sources in /build by adding "-v $(pwd):/build" to your docker command'
+  exit 1
+fi
+
+cd /build || exit 1
+make "$@"
+exit $?
