@@ -35,6 +35,7 @@ RUN true && \
     pip3 install --break-system-packages -r blflashcommand/requirements.txt && \
     apt-get remove -y --autoremove gcc && \
     apt-get clean && \
+    chmod -R o+w /bouffalo_sdk && \
     true
 
 env BL_SDK_BASE=/bouffalo_sdk
