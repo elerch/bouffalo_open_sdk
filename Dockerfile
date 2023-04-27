@@ -1,7 +1,5 @@
 FROM git.lerch.org/lobo/xuantie-gnu-toolchain:b181cea
 
-# Might be easier to pull down the tar.gz instead...
-
 ADD https://github.com/bouffalolab/bouffalo_sdk/archive/2f6477f7e8882a01b4c8651d4676de2a3fa33c76.tar.gz /
 
 ADD https://git.lerch.org/lobo/blflashcommand/archive/2cbf382b74e6549d8cafe0db0813db7f285ff781.tar.gz /
@@ -36,6 +34,7 @@ RUN true && \
     apt-get remove -y --autoremove gcc && \
     apt-get clean && \
     chmod -R o+w /bouffalo_sdk && \
+    chmod -R o+w /blflashcommand && \
     true
 
 env BL_SDK_BASE=/bouffalo_sdk
